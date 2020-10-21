@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.12.2
+
+- Try to fix aliases bug
+
 ## 1.12.1
 
 - Clean up dehydrated lock file at start also if no live cert exists

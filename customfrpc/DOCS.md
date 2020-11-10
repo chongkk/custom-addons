@@ -12,4 +12,4 @@ Custom FRPC
     "proxy_name": "str?",
     "remote_port": "str",
     "type": "str",
-    "subdomain": "str",
+    "custom_domain": "str"

@@ -14,7 +14,7 @@
     "local_port": "8123",
     "remote_port": "8123",
     "type": "tcp",
-    "subdomain": "Subdomain"
+    "custom_domain": "custom_domain"
   },
   "schema": {
     "local_ip": "str",
@@ -25,7 +25,7 @@
     "proxy_name": "str?",
     "remote_port": "str",
     "type": "str",
-    "subdomain": "str"
+    "custom_domain": "str"
   },
   "image": "chongxiii/{arch}-addon-customfrpc"
 }

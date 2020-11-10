@@ -9,6 +9,9 @@ SERVER_PORT=$(jq --raw-output '.server_port' $CONFIG_PATH)
 LOCAL_PORT=$(jq --raw-output '.local_port' $CONFIG_PATH)
 REMOTE_PORT=$(jq --raw-output '.remote_port' $CONFIG_PATH)
 PROXY_NAME=$(jq --raw-output '.proxy_name // empty' $CONFIG_PATH)
+SUBDOMAIN=$(jq --raw-output '.subdomain // empty' $CONFIG_PATH)
+TYPE=$(jq --raw-output '.type // empty' $CONFIG_PATH)
+
 
 FRP_PATH=/var/frp
 FRPC_CONF=$FRP_PATH/conf/frpc.ini
@@ -29,7 +32,8 @@ if [ $TOKEN ]; then
   echo "token = $TOKEN" >> $FRPC_CONF
 fi
 echo "[$PROXY_NAME]" >> $FRPC_CONF
-echo "type = tcp" >> $FRPC_CONF
+echo "subdomain = $SUBDOMAIN" >> $FRPC_CONF
+echo "type = $TYPE" >> $FRPC_CONF
 echo "local_ip = 127.0.0.1" >> $FRPC_CONF
 echo "local_port = $LOCAL_PORT" >> $FRPC_CONF
 echo "remote_port = $REMOTE_PORT" >> $FRPC_CONF

@@ -4,11 +4,12 @@
 
 Custom FRPC
 
+    "local_ip": "str",
+    "local_port": "str",
     "server_ip": "str",
     "token": "str?",
     "server_port": "str",
     "proxy_name": "str?",
-    "local_port": "str",
     "remote_port": "str",
     "type": "str",
-    "subdomain": "str"
+    "subdomain": "str",

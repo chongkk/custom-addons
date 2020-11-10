@@ -26,7 +26,7 @@ echo "[common]" >> $FRPC_CONF
 echo "server_addr = $SERVER_IP" >> $FRPC_CONF
 echo "server_port = $SERVER_PORT" >> $FRPC_CONF
 if [ $TOKEN ]; then
-  echo "privilege_token = $TOKEN" >> $FRPC_CONF
+  echo "token = $TOKEN" >> $FRPC_CONF
 fi
 echo "[$PROXY_NAME]" >> $FRPC_CONF
 echo "type = tcp" >> $FRPC_CONF

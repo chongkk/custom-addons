@@ -1,4 +1,4 @@
-# Home Assistant Add-on: DuckDNS
+# Home Assistant Add-on: FRPC
 
 ## Installation
 

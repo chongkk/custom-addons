@@ -25,7 +25,7 @@
     "proxy_name": "str?",
     "remote_port": "str",
     "type": "str",
-    "subdomain": "str",
+    "subdomain": "str"
   },
   "image": "chongxiii/{arch}-addon-customfrpc"
 }

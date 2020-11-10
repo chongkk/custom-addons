@@ -4,7 +4,7 @@ set -e
 CONFIG_PATH=/data/options.json
 
 SERVER_IP=$(jq --raw-output '.server_ip' $CONFIG_PATH)
-AUTH_TOKEN=$(jq --raw-output '.auth_token // empty' $CONFIG_PATH)
+TOKEN=$(jq --raw-output '.token // empty' $CONFIG_PATH)
 SERVER_PORT=$(jq --raw-output '.server_port' $CONFIG_PATH)
 LOCAL_PORT=$(jq --raw-output '.local_port' $CONFIG_PATH)
 REMOTE_PORT=$(jq --raw-output '.remote_port' $CONFIG_PATH)
@@ -18,15 +18,15 @@ if [ -f $FRPC_CONF ]; then
 fi
 
 if [ ! $PROXY_NAME ]; then
-  PROXY_NAME=hassio
+  PROXY_NAME=frp
   echo Using default proxy name $PROXY_NAME
 fi
 
 echo "[common]" >> $FRPC_CONF
 echo "server_addr = $SERVER_IP" >> $FRPC_CONF
 echo "server_port = $SERVER_PORT" >> $FRPC_CONF
-if [ $AUTH_TOKEN ]; then
-  echo "privilege_token = $AUTH_TOKEN" >> $FRPC_CONF
+if [ $TOKEN ]; then
+  echo "privilege_token = $TOKEN" >> $FRPC_CONF
 fi
 echo "[$PROXY_NAME]" >> $FRPC_CONF
 echo "type = tcp" >> $FRPC_CONF

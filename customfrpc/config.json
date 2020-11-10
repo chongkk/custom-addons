@@ -15,7 +15,7 @@
   },
   "schema": {
     "server_ip": "str",
-    "auth_token": "str?",
+    "token": "str?",
     "server_port": "str",
     "proxy_name": "str?",
     "local_port": "str",

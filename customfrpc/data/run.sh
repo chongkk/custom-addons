@@ -19,13 +19,18 @@ if [ -f $FRPC_CONF ]; then
   rm $FRPC_CONF
 fi
 
+if [ ! $PROXY_NAME ]; then
+  PROXY_NAME=$SUBDOMAIN
+  echo Using default proxy name $PROXY_NAME
+fi
+
 echo "[common]" >> $FRPC_CONF
 echo "server_addr = $SERVER_IP" >> $FRPC_CONF
 echo "server_port = $SERVER_PORT" >> $FRPC_CONF
 if [ $TOKEN ]; then
   echo "token = $TOKEN" >> $FRPC_CONF
 fi
-echo "[proxy_name = $SUBDOMAIN]" >> $FRPC_CONF
+echo "[$PROXY_NAME]" >> $FRPC_CONF
 echo "subdomain = $SUBDOMAIN" >> $FRPC_CONF
 echo "type = $TYPE" >> $FRPC_CONF
 echo "local_ip = $LOCAL_IP" >> $FRPC_CONF

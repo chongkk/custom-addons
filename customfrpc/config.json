@@ -10,11 +10,11 @@
   "options": {
     "server_ip": null,
     "server_port": "7000",
-    "local_ip": "192.168.0.100",
+    "local_ip": "127.0.0.1",
     "local_port": "8123",
-    "remote_port": "8123",
-    "type": "tcp",
-    "custom_domain": "custom_domain"
+    "type": "http",
+    "subdomain": "subdomain",
+    "token": "token"
   },
   "schema": {
     "local_ip": "str",
@@ -23,9 +23,8 @@
     "token": "str?",
     "server_port": "str",
     "proxy_name": "str?",
-    "remote_port": "str",
     "type": "str",
-    "custom_domain": "str"
+    "subdomain": "str"
   },
   "image": "chongxiii/{arch}-addon-customfrpc"
 }

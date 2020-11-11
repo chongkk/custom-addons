@@ -4,6 +4,7 @@
 
 Custom FRPC
 
+    "local_ip": "str",
     "local_port": "str",
     "server_ip": "str",
     "token": "str?",

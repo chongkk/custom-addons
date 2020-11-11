@@ -10,12 +10,14 @@
   "options": {
     "server_ip": null,
     "server_port": "7000",
+    "local_ip": "127.0.0.1",
     "local_port": "8123",
     "type": "http",
     "subdomain": "subdomain",
     "token": "token"
   },
   "schema": {
+    "local_ip": "str",
     "local_port": "str",
     "server_ip": "str",
     "token": "str?",

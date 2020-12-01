@@ -1,0 +1,30 @@
+{
+  "name": "Custom FRPC2",
+  "version": "0.34.1",
+  "slug": "customfrpc2",
+  "description": "customfrpc2",
+  "url": "https://github.com/chongkk/custom-addons/tree/main/customfrpc",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "application",
+  "boot": "auto",
+  "options": {
+    "server_ip": null,
+    "server_port": "7000",
+    "local_ip": "192.168.0.100",
+    "local_port": "80",
+    "type": "http",
+    "subdomain": "subdomain",
+    "token": "token"
+  },
+  "schema": {
+    "local_ip": "str",
+    "local_port": "str",
+    "server_ip": "str",
+    "token": "str?",
+    "server_port": "str",
+    "proxy_name": "str?",
+    "type": "str",
+    "subdomain": "str"
+  },
+  "image": "chongxiii/{arch}-addon-customfrpc2"
+}

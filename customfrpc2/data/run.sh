@@ -20,7 +20,8 @@ if [ -f $FRPC_CONF ]; then
 fi
 
 if [ ! $PROXY_NAME ]; then
-  PROXY_NAME=$SUBDOMAIN + "_80"
+  PORT_NAME="_80"
+  PROXY_NAME=$SUBDOMAIN$PORT_NAME
   echo Using default proxy name $PROXY_NAME
 fi
 

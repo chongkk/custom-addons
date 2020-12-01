@@ -8,7 +8,6 @@ TOKEN=$(jq --raw-output '.token' $CONFIG_PATH)
 SERVER_PORT=$(jq --raw-output '.server_port' $CONFIG_PATH)
 LOCAL_PORT=$(jq --raw-output '.local_port' $CONFIG_PATH)
 PROXY_NAME=$(jq --raw-output '.proxy_name // empty' $CONFIG_PATH)
-SUBDOMAIN=$(jq --raw-output '.subdomain' $CONFIG_PATH)
 TYPE=$(jq --raw-output '.type' $CONFIG_PATH)
 LOCAL_IP=$(jq --raw-output '.local_ip' $CONFIG_PATH)
 
@@ -21,7 +20,7 @@ fi
 
 if [ ! $PROXY_NAME ]; then
   PORT_NAME="_80"
-  PROXY_NAME=$SUBDOMAIN$PORT_NAME
+  PROXY_NAME=$PORT_NAME
   echo Using default proxy name $PROXY_NAME
 fi
 
@@ -32,7 +31,6 @@ if [ $TOKEN ]; then
   echo "token = $TOKEN" >> $FRPC_CONF
 fi
 echo "[$PROXY_NAME]" >> $FRPC_CONF
-echo "subdomain = $SUBDOMAIN" >> $FRPC_CONF
 echo "type = $TYPE" >> $FRPC_CONF
 echo "local_ip = $LOCAL_IP" >> $FRPC_CONF
 echo "local_port = $LOCAL_PORT" >> $FRPC_CONF

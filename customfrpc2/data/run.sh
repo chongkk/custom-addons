@@ -19,8 +19,7 @@ if [ -f $FRPC_CONF ]; then
 fi
 
 if [ ! $PROXY_NAME ]; then
-  PORT_NAME="_80"
-  PROXY_NAME=$PORT_NAME
+  PROXY_NAME="TEST"
   echo Using default proxy name $PROXY_NAME
 fi
 

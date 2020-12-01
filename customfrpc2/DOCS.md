@@ -10,5 +10,4 @@ Custom FRPC
     "token": "str?",
     "server_port": "str",
     "proxy_name": "str?",
-    "type": "str",
-    "subdomain": "str"
+    "type": "str"

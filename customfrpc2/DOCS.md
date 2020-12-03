@@ -1,4 +1,4 @@
-# Home Assistant Add-on: FRPC
+# Home Assistant Add-on: FRPC2
 
 ## Installation
 
@@ -10,5 +10,5 @@ Custom FRPC
     "token": "str?",
     "server_port": "str",
     "proxy_name": "str?",
-    "type": http or https,
+    "type": http or https
     "subdomain": "str"

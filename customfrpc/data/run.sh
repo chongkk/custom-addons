@@ -46,7 +46,7 @@ if [ $TYPE == "https" ]; then
 fi
 echo "use_encryption = true" >> $FRPC_CONF
 echo "use_compression = true" >> $FRPC_CONF
-echo "bandwidth_limit = 1MB" >> $FRPC_CONF
+echo "bandwidth_limit = 2MB" >> $FRPC_CONF
 
 echo Start frp as client
 

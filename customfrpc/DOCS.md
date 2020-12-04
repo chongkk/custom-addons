@@ -11,5 +11,4 @@ Custom FRPC
     "server_port": "str",
     "proxy_name": "str?",
     "type": http or https,
-    "subdomain": "str",
-    "remote_port": "str"
+    "subdomain": "str"

@@ -29,7 +29,7 @@ else
 fi
 
 # CloudFlare
-elif [ "${DNS_PROVIDER}" == "dns-cloudflare" ]; then
+if [ "${DNS_PROVIDER}" == "dns-cloudflare" ]; then
     if bashio::config.exists 'dns.cloudflare_api_token'; then
         bashio::log.info "Use CloudFlare token"
         echo "dns_cloudflare_api_token = $(bashio::config 'dns.cloudflare_api_token')" >> /data/dnsapikey

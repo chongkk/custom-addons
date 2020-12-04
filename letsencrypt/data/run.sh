@@ -83,7 +83,7 @@ cp "${CERT_DIR_LATEST}fullchain.pem" "/ssl/$CERTFILE"
 while true; do
     
     now="$(date +%s)"
-    if [ $((now - LE_UPDATE)) -ge 300 ]; then
+    if [ $((now - LE_UPDATE)) -ge ${WAIT_TIME} ]; then
         le_renew
     fi
     

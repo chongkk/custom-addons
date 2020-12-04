@@ -12,7 +12,7 @@
   "options": {
     "email": null,
     "domains": [null],
-    "seconds": 300,
+    "seconds": 43200,
     "certfile": "fullchain.pem",
     "keyfile": "privkey.pem",
     "challenge": "dns",

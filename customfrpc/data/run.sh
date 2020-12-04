@@ -11,7 +11,7 @@ PROXY_NAME=$(jq --raw-output '.proxy_name // empty' $CONFIG_PATH)
 SUBDOMAIN=$(jq --raw-output '.subdomain' $CONFIG_PATH)
 TYPE=$(jq --raw-output '.type' $CONFIG_PATH)
 LOCAL_IP=$(jq --raw-output '.local_ip' $CONFIG_PATH)
-REMOTE_PORT=$(jq --raw-output '.remote_port' $CONFIG_PATH)
+REMOTE_PORT=$(jq --raw-output '.remote_port // empty' $CONFIG_PATH)
 
 FRP_PATH=/var/frp
 FRPC_CONF=$FRP_PATH/conf/frpc.ini

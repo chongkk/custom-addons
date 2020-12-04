@@ -11,6 +11,7 @@ PROXY_NAME=$(jq --raw-output '.proxy_name // empty' $CONFIG_PATH)
 SUBDOMAIN=$(jq --raw-output '.subdomain' $CONFIG_PATH)
 TYPE=$(jq --raw-output '.type' $CONFIG_PATH)
 LOCAL_IP=$(jq --raw-output '.local_ip' $CONFIG_PATH)
+REMOTE_PORT=$(jq --raw-output '.remote_port' $CONFIG_PATH)
 
 FRP_PATH=/var/frp
 FRPC_CONF=$FRP_PATH/conf/frpc.ini
@@ -35,6 +36,9 @@ echo "subdomain = $SUBDOMAIN" >> $FRPC_CONF
 echo "type = $TYPE" >> $FRPC_CONF
 echo "local_ip = $LOCAL_IP" >> $FRPC_CONF
 echo "local_port = $LOCAL_PORT" >> $FRPC_CONF
+if [ $REMOTE_PORT ]; then
+  echo "remote_port = $REMOTE_PORT" >> $FRPC_CONF
+fi
 
 echo Start frp as client
 

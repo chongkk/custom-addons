@@ -12,6 +12,7 @@
   "options": {
     "email": null,
     "domains": [null],
+    "seconds": 300,
     "certfile": "fullchain.pem",
     "keyfile": "privkey.pem",
     "challenge": "dns",
@@ -25,6 +26,7 @@
     "challenge": "list(dns)",
     "acme_server": "url?",
     "acme_root_ca_cert": "str?",
+    "seconds": "int",
     "dns": {
       "provider": "list(dns-cloudflare)?",
       "propagation_seconds": "int(60,3600)?",

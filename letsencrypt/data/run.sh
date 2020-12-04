@@ -15,7 +15,11 @@ CHALLENGE=$(bashio::config 'challenge')
 DNS_PROVIDER=$(bashio::config 'dns.provider')
 ACME_SERVER=$(bashio::config 'acme_server')
 ACME_ROOT_CA=$(bashio::config 'acme_root_ca_cert')
+WAIT_TIME=$(bashio::config 'seconds')
 
+LE_UPDATE="0"
+
+function le_renew() {
 if [ "${CHALLENGE}" == "dns" ]; then
     bashio::log.info "Selected DNS Provider: ${DNS_PROVIDER}"
 
@@ -72,3 +76,16 @@ fi
 CERT_DIR_LATEST="$(ls -td $CERT_DIR/live/*/ | head -1)"
 cp "${CERT_DIR_LATEST}privkey.pem" "/ssl/$KEYFILE"
 cp "${CERT_DIR_LATEST}fullchain.pem" "/ssl/$CERTFILE"
+
+    LE_UPDATE="$(date +%s)"
+}
+
+while true; do
+    
+    now="$(date +%s)"
+    if [ $((now - LE_UPDATE)) -ge 43200 ]; then
+        le_renew
+    fi
+    
+    sleep "${WAIT_TIME}"
+done

@@ -44,6 +44,9 @@ fi
 if [ $TYPE == "https" ]; then
   echo "subdomain = $SUBDOMAIN" >> $FRPC_CONF
 fi
+echo "use_encryption = true" >> $FRPC_CONF
+echo "use_compression = true" >> $FRPC_CONF
+echo "bandwidth_limit = 1MB" >> $FRPC_CONF
 
 echo Start frp as client
 

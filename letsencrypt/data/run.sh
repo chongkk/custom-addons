@@ -83,9 +83,10 @@ cp "${CERT_DIR_LATEST}fullchain.pem" "/ssl/$CERTFILE"
 while true; do
     
     now="$(date +%s)"
-    if [ $((now - LE_UPDATE)) -ge 43200 ]; then
+    if [ $((now - LE_UPDATE)) -ge 300 ]; then
         le_renew
     fi
     
+    bashio::log.info "Cron Check every ${WAIT_TIME} seconds"
     sleep "${WAIT_TIME}"
 done

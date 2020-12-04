@@ -14,7 +14,8 @@
     "local_port": "443",
     "type": "https",
     "subdomain": "subdomain",
-    "token": "token"
+    "token": "token",
+    "remote_port": "10000"
   },
   "schema": {
     "local_ip": "str",

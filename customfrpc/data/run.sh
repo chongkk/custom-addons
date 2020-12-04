@@ -32,12 +32,17 @@ if [ $TOKEN ]; then
   echo "token = $TOKEN" >> $FRPC_CONF
 fi
 echo "[$PROXY_NAME]" >> $FRPC_CONF
-echo "subdomain = $SUBDOMAIN" >> $FRPC_CONF
 echo "type = $TYPE" >> $FRPC_CONF
 echo "local_ip = $LOCAL_IP" >> $FRPC_CONF
 echo "local_port = $LOCAL_PORT" >> $FRPC_CONF
 if [ $TYPE == "tcp" ]; then
   echo "remote_port = $REMOTE_PORT" >> $FRPC_CONF
+fi
+if [ $TYPE == "http" ]; then
+  echo "subdomain = $SUBDOMAIN" >> $FRPC_CONF
+fi
+if [ $TYPE == "https" ]; then
+  echo "subdomain = $SUBDOMAIN" >> $FRPC_CONF
 fi
 
 echo Start frp as client

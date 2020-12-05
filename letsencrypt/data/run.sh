@@ -82,7 +82,7 @@ while true; do
         now="$(date +%s)"
         if [ $((now - LE_UPDATE)) -ge ${WAIT_TIME} ]; then
           bashio::log.info "Renewing certificate"
-            mkdir -p "${CERT_DIR}"
+            mkdir -p "$CERT_DIR/live/$DOMAINS/"
             cp "/ssl/$KEYFILE" "$CERT_DIR/live/$DOMAINS/privkey.pem"
             cp "/ssl/$CERTFILE" "$CERT_DIR/live/$DOMAINS/fullchain.pem"
             if [ "${CHALLENGE}" == "dns" ]; then

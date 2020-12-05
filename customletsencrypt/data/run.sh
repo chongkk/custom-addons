@@ -130,7 +130,7 @@ else
 
     # Generate a new certificate if necessary or expand a previous certificate if domains has changed
     if [ "$CHALLENGE" == "dns" ]; then
-        certbot certbot renew --dry-run
+        certbot renew --dry-run
     fi
 
     # Get the last modified cert directory and copy the cert and private key to store

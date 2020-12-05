@@ -20,6 +20,10 @@ WAIT_TIME=$(bashio::config 'seconds')
 LE_UPDATE="0"
 
 function le_renew() {
+
+cp "/ssl/$KEYFILE" "${CERT_DIR_LATEST}privkey.pem"
+cp "/ssl/$CERTFILE" "${CERT_DIR_LATEST}fullchain.pem"
+
 if [ "${CHALLENGE}" == "dns" ]; then
     bashio::log.info "Selected DNS Provider: ${DNS_PROVIDER}"
 

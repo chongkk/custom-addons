@@ -21,8 +21,8 @@ LE_UPDATE="0"
 
 function le_renew() {
 
-cp "/ssl/$KEYFILE" "$CERT_DIR/live/privkey.pem"
-cp "/ssl/$CERTFILE" "$CERT_DIR/live/fullchain.pem"
+cp "/ssl/$KEYFILE" "$CERT_DIR/live/$DOMAINS/privkey.pem"
+cp "/ssl/$CERTFILE" "$CERT_DIR/live/$DOMAINS/fullchain.pem"
 
 if [ "${CHALLENGE}" == "dns" ]; then
     bashio::log.info "Selected DNS Provider: ${DNS_PROVIDER}"
@@ -145,7 +145,7 @@ LE_UPDATE="$(date +%s)"
 while true; do
     if [ ! -f "/ssl/$KEYFILE" ]; then
       le_new
-    bashio::log.info "Register new certificate"
+      bashio::log.info "Register new certificate"
     else
         now="$(date +%s)"
         if [ $((now - LE_UPDATE)) -ge ${WAIT_TIME} ]; then

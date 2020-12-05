@@ -21,7 +21,7 @@ LE_UPDATE="0"
 
 function le_renew() {
 
-cp "/ssl/$KEYFILE" "$CERT_DIR/live/$DOMAINS/privkey.pem"
+cp /ssl/$KEYFILE $CERT_DIR/live/$DOMAINS/privkey.pem
 cp "/ssl/$CERTFILE" "$CERT_DIR/live/$DOMAINS/fullchain.pem"
 
 if [ "${CHALLENGE}" == "dns" ]; then

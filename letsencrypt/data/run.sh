@@ -33,7 +33,7 @@ while true; do
     fi
 done
 
-function le_new() {
+function le_new () {
 if [ "${CHALLENGE}" == "dns" ]; then
     bashio::log.info "Selected DNS Provider: ${DNS_PROVIDER}"
 

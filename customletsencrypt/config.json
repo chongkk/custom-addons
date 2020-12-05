@@ -1,13 +1,13 @@
 {
-  "name": "Let's Encrypt",
-  "version": "4.11.0",
-  "slug": "letsencrypt",
-  "description": "Manage certificate from Let's Encrypt",
+  "name": "Custom Let's Encrypt",
+  "version": "4.11.1",
+  "slug": "customletsencrypt",
+  "description": "Custom Manage certificate from Let's Encrypt (Only for dns-cloudflare)",
   "url": "https://github.com/home-assistant/hassio-addons/tree/master/letsencrypt",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
-  "startup": "once",
+  "startup": "services",
   "init": false,
-  "boot": "manual",
+  "boot": "auto",
   "map": ["ssl:rw", "share"],
   "options": {
     "email": null,
@@ -35,5 +35,5 @@
       "cloudflare_api_token": "str?"
     }
   },
-  "image": "chongxiii/{arch}-addon-letsencrypt"
+  "image": "chongxiii/{arch}-addon-customletsencrypt"
 }

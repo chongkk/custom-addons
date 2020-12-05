@@ -1,6 +1,6 @@
 {
   "name": "Custom Let's Encrypt",
-  "version": "4.11.1",
+  "version": "4.11.2",
   "slug": "customletsencrypt",
   "description": "Custom Manage certificate from Let's Encrypt (Only for dns-cloudflare)",
   "url": "https://github.com/home-assistant/hassio-addons/tree/master/letsencrypt",

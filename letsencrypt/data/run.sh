@@ -152,7 +152,7 @@ CERT_DIR_LATEST="$(ls -td $CERT_DIR/live/*/ | head -1)"
 cp "${CERT_DIR_LATEST}privkey.pem" "/ssl/$KEYFILE"
 cp "${CERT_DIR_LATEST}fullchain.pem" "/ssl/$CERTFILE"
 
-    LE_UPDATE="$(date +%s)"
+LE_UPDATE="$(date +%s)"
 }
 while true; do
     

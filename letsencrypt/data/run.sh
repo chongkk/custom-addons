@@ -80,20 +80,6 @@ cp "${CERT_DIR_LATEST}fullchain.pem" "/ssl/$CERTFILE"
 LE_UPDATE="$(date +%s)"
 }
 
-while true; do
-    if LE_UPDATE="0"; then
-        le_new
-    fi
-    bashio::log.info "Register new certificate"
-    now="$(date +%s)"
-    if [ $((now - LE_UPDATE)) -ge ${WAIT_TIME} ]; then
-        le_renew
-    fi
-    
-    bashio::log.info "Cron Check every ${WAIT_TIME} seconds"
-    sleep "${WAIT_TIME}"
-done
-
 function le_new() {
 if [ "${CHALLENGE}" == "dns" ]; then
     bashio::log.info "Selected DNS Provider: ${DNS_PROVIDER}"
@@ -154,13 +140,17 @@ cp "${CERT_DIR_LATEST}fullchain.pem" "/ssl/$CERTFILE"
 
 LE_UPDATE="$(date +%s)"
 }
+
 while true; do
-    
-    now="$(date +%s)"
-    if [ $((now - LE_UPDATE)) -ge ${WAIT_TIME} ]; then
-        le_renew
+    if [ ! -f "/ssl/$KEYFILE" ]; then
+      le_new
+    bashio::log.info "Register new certificate"
+    else
+        now="$(date +%s)"
+        if [ $((now - LE_UPDATE)) -ge ${WAIT_TIME} ]; then
+            le_renew
+        fi
+        bashio::log.info "Cron Check every ${WAIT_TIME} seconds"
+        sleep "${WAIT_TIME}"
     fi
-    
-    bashio::log.info "Cron Check every ${WAIT_TIME} seconds"
-    sleep "${WAIT_TIME}"
 done

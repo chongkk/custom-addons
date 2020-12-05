@@ -80,7 +80,7 @@ if [ ! -f "/ssl/$KEYFILE" ]; then
     cp "${CERT_DIR_LATEST}privkey.pem" "/ssl/$KEYFILE"
     cp "${CERT_DIR_LATEST}fullchain.pem" "/ssl/$CERTFILE"
     mkdir -p "/ssl/letsencrypt"
-    cp -rf "$CERT_DIR/." "/ssl/letsencrypt/"
+    cp -a -r -f "$CERT_DIR/." "/ssl/letsencrypt/"
 
         LE_UPDATE="$(date +%s)"
 else
@@ -88,7 +88,7 @@ else
     #mkdir -p "$CERT_DIR/live/$DOMAINS/"
     #cp "/ssl/$KEYFILE" "$CERT_DIR/live/$DOMAINS/privkey.pem"
     #cp "/ssl/$CERTFILE" "$CERT_DIR/live/$DOMAINS/fullchain.pem"
-    cp -rf "/ssl/letsencrypt/." "$CERT_DIR/"
+    cp -a -r -f "/ssl/letsencrypt/." "$CERT_DIR/"
 
     # Gather all domains into a plaintext file
     DOMAIN_ARR=()

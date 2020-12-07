@@ -82,11 +82,11 @@ if [ ! -f "/ssl/$KEYFILE" ]; then
         LE_UPDATE="$(date +%s)"
 else
     bashio::log.info "Renewing new certificate"
-    if [ ! -f "$CERT_DIR/live/$DOMAINS/privkey.pem" ]; then
-        mkdir -p "$CERT_DIR/live/$DOMAINS/"
-        cp "/ssl/$KEYFILE" "$CERT_DIR/live/$DOMAINS/privkey.pem"
-        cp "/ssl/$CERTFILE" "$CERT_DIR/live/$DOMAINS/fullchain.pem"
-    fi
+    # if [ ! -f "$CERT_DIR/live/$DOMAINS/privkey.pem" ]; then
+    #     mkdir -p "$CERT_DIR/live/$DOMAINS/"
+    #     cp "/ssl/$KEYFILE" "$CERT_DIR/live/$DOMAINS/privkey.pem"
+    #     cp "/ssl/$CERTFILE" "$CERT_DIR/live/$DOMAINS/fullchain.pem"
+    # fi
     if [ "${CHALLENGE}" == "dns" ]; then
         bashio::log.info "Selected DNS Provider: ${DNS_PROVIDER}"
 

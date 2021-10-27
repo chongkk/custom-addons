@@ -5,7 +5,7 @@ FROM $BUILD_FROM
 ENV LANG C.UTF-8
 ARG BUILD_ARCH
 RUN apk update \
-     && apk add --no-cache jq wget curl
+    && apk add --no-cache jq wget curl
 
 RUN set -x \
     && if [ $BUILD_ARCH == "armhf" ]; then FRP_ARCH="arm"; fi \

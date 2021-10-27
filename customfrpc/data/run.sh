@@ -38,6 +38,9 @@ echo "local_port = $LOCAL_PORT" >> $FRPC_CONF
 if [ $TYPE == "tcp" ]; then
   echo "remote_port = $REMOTE_PORT" >> $FRPC_CONF
 fi
+if [ $TYPE == "udp" ]; then
+  echo "remote_port = $REMOTE_PORT" >> $FRPC_CONF
+fi
 if [ $TYPE == "http" ]; then
   echo "subdomain = $SUBDOMAIN" >> $FRPC_CONF
 fi

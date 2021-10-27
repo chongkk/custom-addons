@@ -6,7 +6,6 @@ ENV LANG C.UTF-8
 ARG BUILD_ARCH
 RUN apk update \
     && apk add --no-cache jq wget curl
-
 RUN set -x \
     && if [ $BUILD_ARCH == "armhf" ]; then FRP_ARCH="arm"; fi \
     && if [ $BUILD_ARCH == "amd64" ]; then FRP_ARCH="amd64"; fi \
@@ -19,8 +18,6 @@ RUN set -x \
     && tar -zxf frp_${FRP_VERSION}_linux_${FRP_ARCH}.tar.gz \
     && mv frp_${FRP_VERSION}_linux_${FRP_ARCH} /var/frp \
     && mkdir -p /var/frp/conf
-
 # Copy data
 COPY data/*.sh /
-
 CMD [ "/run.sh" ]
